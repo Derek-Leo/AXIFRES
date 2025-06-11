@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axifres - Ingredientes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Mismos estilos que en la página principal */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+      color: #e0f2f1;
+      background: #0b2611;
+      position: relative;
+      z-index: 0;
+    }
+    #bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: -1;
+      background: #041805;
+      filter: brightness(0.7);
+      display: block;
+      pointer-events: none;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      color: #a5d6a7;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 0 10px #4caf50;
+    }
+    header h1 {
+      font-size: 3.5em;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      animation: fadeInUpSubtitle 3s ease forwards;
+      opacity: 0;
+      color: #c8e6c9;
+      text-shadow: 0 0 8px #81c784;
+    }
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(50px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUpSubtitle {
+      0% {opacity: 0; transform: translateY(70px);}
+      50% {opacity: 0.6;}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    nav {
+      background-color: #142b0ddd;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 18px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-radius: 0 0 15px 15px;
+      user-select: none;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #a5d6a7;
+      padding: 8px 15px;
+      border-radius: 12px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 4px transparent;
+    }
+    nav a:hover, nav a:focus {
+      color: #e8f5e9;
+      background-color: #4caf50aa;
+      box-shadow: 0 0 12px #81c784;
+      transform: scale(1.1);
+      outline: none;
+    }
+    nav a.active {
+      background-color: #81c784cc;
+      color: #004d40;
+      box-shadow: 0 0 15px #a5d6a7;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      color: #a5d6a7;
+      text-shadow: 0 0 7px #4caf50cc;
+      border-bottom: 3px solid #4caf50;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 5px;
+    }
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+    .ingredient-card {
+      background-color: #12421aee;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .ingredient-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px #66bb6a88;
+    }
+    .ingredient-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ingredient-card .text {
+      padding: 20px;
+      color: #c8e6c9;
+      line-height: 1.5;
+      font-size: 1.1em;
+      text-shadow: 0 0 3px #2e7d32aa;
+    }
+    footer {
+      background-color: #142b0d;
+      color: #a5d6a7;
+      text-align: center;
+      padding: 45px 20px;
+      margin-top: 80px;
+      font-size: 0.9em;
+      user-select: none;
+      letter-spacing: 0.02em;
+    }
+    footer a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #c8e6c9;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+  <h1>Axifres</h1>
+  <h1>¡Vive la vida sin mal olor!</h1>
+  <p>Ingredientes de Axifres-la naturaleza al servicio de tu piel</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="producto.html">Producto</a>
+    <a href="ingredientes.html" class="active">Ingredientes</a>
+    <a href="caracteristicas.html">Características</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="creador.html">Creador</a>
+  </nav>
+
+  <main>
+    <h2>Ingredientes Naturales</h2>
+    <div class="ingredient-grid">
+      <div class="ingredient-card">
+        <img src="agua-hamamelis.jpg" alt="Agua de Hamamelis" />
+        <div class="text">
+          <strong>Agua de Hamamelis</strong><br />
+          Con propiedades astringentes y antiinflamatorias, tonifica la piel, reduce irritaciones y ayuda a minimizar los poros. Ideal para pieles sensibles y para mantener el equilibrio natural.
+        </div>
+      </div>
+      <div class="ingredient-card">
+        <img src="agua-rosas.jpg" alt="Agua de Rosas" />
+        <div class="text">
+          <strong>Agua de Rosas</strong><br />
+          Hidratante y calmante natural. Refresca la piel, mejora su elasticidad y tiene efectos antioxidantes que ayudan a rejuvenecer. Su fragancia suave aporta una sensación de bienestar.
+        </div>
+      </div>
+      <div class="ingredient-card">
+        <img src="agua-destilada.jpg" alt="Agua Destilada" />
+        <div class="text">
+          <strong>Agua Destilada</strong><br />
+          Agua purificada sin impurezas ni minerales. Sirve como base segura para evitar reacciones adversas y facilita la mezcla uniforme de los ingredientes activos.
+        </div>
+      </div>
+      <div class="ingredient-card">
+        <img src="piedra-alumbre.jpg" alt="Piedra de Alumbre" />
+        <div class="text">
+          <strong>Piedra de Alumbre</strong><br />
+          Mineral natural con propiedades antibacterianas. Combate el mal olor sin obstruir los poros ni interferir con la transpiración natural. Protege y mantiene la piel fresca durante todo el día.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contacto: <a href="mailto:axifres09@gmail.com">axifres09@gmail.com</a> | Tel: +52 56 3620 8584</p>
+    <p>&copy; 2025 Axifres. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Leaf {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = height + Math.random() * 100;
+        this.size = 10 + Math.random() * 20;
+        this.speed = 0.5 + Math.random() * 1.2;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.02;
+        this.opacity = 0.1 + Math.random() * 0.4;
+        this.color = `rgba(81, 141, 58, ${this.opacity})`;
+      }
+      update() {
+        this.y -= this.speed;
+        this.x += Math.sin(this.angle) * 0.5;
+        this.angle += this.spin;
+        if (this.y + this.size < 0 || this.x < -this.size || this.x > width + this.size) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.size * 0.6, this.size, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = `rgba(50, 100, 30, ${this.opacity + 0.2})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, -this.size);
+        ctx.lineTo(0, this.size);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    let leaves = [];
+    function init() {
+      leaves = [];
+      for (let i = 0; i < 70; i++) leaves.push(new Leaf());
+    }
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'rgba(4, 24, 5, 0.8)';
+      ctx.fillRect(0, 0, width, height);
+      leaves.forEach(leaf => { leaf.update(); leaf.draw(); });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => { resize(); init(); });
+    resize();
+    init();
+    animate();
+  </script>
+</body>
+</html>

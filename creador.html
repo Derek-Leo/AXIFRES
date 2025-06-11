@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axifres - Creador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Mismos estilos que las otras páginas */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+      color: #e0f2f1;
+      background: #0b2611;
+      position: relative;
+      z-index: 0;
+    }
+    #bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: -1;
+      background: #041805;
+      filter: brightness(0.7);
+      display: block;
+      pointer-events: none;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      color: #a5d6a7;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 0 10px #4caf50;
+    }
+    header h1 {
+      font-size: 3.4em;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+    header p {
+      font-size: 1.6em;
+      margin-top: 10px;
+      animation: fadeInUpSubtitle 3s ease forwards;
+      opacity: 0;
+      color: #c8e6c9;
+      text-shadow: 0 0 8px #81c784;
+    }
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(50px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUpSubtitle {
+      0% {opacity: 0; transform: translateY(70px);}
+      50% {opacity: 0.6;}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    nav {
+      background-color: #142b0ddd;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 18px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-radius: 0 0 15px 15px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #a5d6a7;
+      padding: 8px 15px;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+    nav a:hover, nav a:focus {
+      color: #e8f5e9;
+      background-color: #4caf50aa;
+      box-shadow: 0 0 12px #81c784;
+      transform: scale(1.1);
+    }
+    nav a.active {
+      background-color: #81c784cc;
+      color: #004d40;
+      box-shadow: 0 0 15px #a5d6a7;
+    }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-bottom: 25px;
+      color: #a5d6a7;
+      text-shadow: 0 0 7px #4caf50cc;
+      border-bottom: 3px solid #4caf50;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 5px;
+    }
+    .creator-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .creator-info img {
+  width: 322px;
+  max-width: 95%;
+  border-radius: 18px;
+  padding: 10px;
+  background: linear-gradient(135deg, #4caf50, #81c784, #66bb6a);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.4), 0 0 30px rgba(129, 199, 132, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 25px;
+}
+.creator-info img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.6), 0 0 50px rgba(129, 199, 132, 0.3);
+}
+    .creator-text {
+      max-width: 600px;
+      font-size: 1.15em;
+      line-height: 1.7;
+      color: #c8e6c9;
+      text-shadow: 0 0 4px #2e7d32;
+    }
+    footer {
+      background-color: #142b0d;
+      color: #a5d6a7;
+      text-align: center;
+      padding: 45px 20px;
+      margin-top: 80px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #c8e6c9;
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      .creator-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      .creator-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <h1>Conoce al creador de Axifres</h1>
+    <p>Un ingenio joven con un gran propósito</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="producto.html">Producto</a>
+    <a href="ingredientes.html">Ingredientes</a>
+    <a href="caracteristicas.html">Características</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="creador.html" class="active" aria-current="page">Creador</a>
+  </nav>
+
+  <main>
+    <h2>Conoce al Creador</h2>
+    <div class="creator-info">
+      <img src="derek.jpg" alt="Foto del creador de Axifres">
+      <div class="creator-text">
+        <p>Derek Leonardo López Cervantes un niño prodigio nacido el <strong>15 de marzo de 2009</strong>, tiene <strong>16 años</strong>. Vive en el <strong>Estado de México</strong> y actualmente cursa las últimas etapas de su segundo semestre en la <strong>Preparatoria International College Sor Juana Inés de la Cruz</strong>. A lo largo de su etapa académica <strong>Derek ha recibido más de 10 reconocimientos, entre ellos destacando los máximos reconocimientos por excelencia académica la "Sor Juana" obtenida en 2 ocasiones consecutivas.</strong></p>
+        <p>Desde temprana edad, Derek ha demostrado un interés genuino por la salud, el medio ambiente y el emprendimiento. Inspirado por la necesidad de contar con una alternativa natural, eficaz y libre de químicos. Desarrolló Axifres: un desodorante que respeta tanto al cuerpo humano como al planeta.</p>
+        <p>Su motivación principal fue ofrecer una solución real para quienes buscan cuidar su piel, evitar productos comerciales agresivos, mantenerse frescos de manera natural e innovar dentro de su comunidad. Axifres es el resultado de su dedicación, perseverancia , esfuerzo y pasión por mejorar la vida de los demás con productos honestos.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contacto: <a href="mailto: axifres09@gmail.com">axifres09@gmail.com</a> | Tel: +52 56 3620 8584</p>
+    <p>&copy; 2025 Axifres. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Leaf {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = height + Math.random() * 100;
+        this.size = 10 + Math.random() * 20;
+        this.speed = 0.5 + Math.random() * 1.2;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.02;
+        this.opacity = 0.1 + Math.random() * 0.4;
+        this.color = `rgba(81, 141, 58, ${this.opacity})`;
+      }
+      update() {
+        this.y -= this.speed;
+        this.x += Math.sin(this.angle) * 0.5;
+        this.angle += this.spin;
+        if (this.y + this.size < 0 || this.x < -this.size || this.x > width + this.size) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.size * 0.6, this.size, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = `rgba(50, 100, 30, ${this.opacity + 0.2})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, -this.size);
+        ctx.lineTo(0, this.size);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    let leaves = [];
+    function init() {
+      leaves = [];
+      for (let i = 0; i < 70; i++) leaves.push(new Leaf());
+    }
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'rgba(4, 24, 5, 0.8)';
+      ctx.fillRect(0, 0, width, height);
+      leaves.forEach(leaf => { leaf.update(); leaf.draw(); });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => { resize(); init(); });
+    resize();
+    init();
+    animate();
+  </script>
+</body>
+</html>
