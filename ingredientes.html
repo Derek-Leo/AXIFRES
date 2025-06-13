@@ -62,40 +62,77 @@
       100% {opacity: 1; transform: translateY(0);}
     }
     nav {
-      background-color: #142b0ddd;
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      padding: 18px 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.7);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-radius: 0 0 15px 15px;
-      user-select: none;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.15em;
-      color: #a5d6a7;
-      padding: 8px 15px;
-      border-radius: 12px;
-      transition: 0.3s ease;
-      box-shadow: 0 0 4px transparent;
-    }
-    nav a:hover, nav a:focus {
-      color: #e8f5e9;
-      background-color: #4caf50aa;
-      box-shadow: 0 0 12px #81c784;
-      transform: scale(1.1);
-      outline: none;
-    }
-    nav a.active {
-      background-color: #81c784cc;
-      color: #004d40;
-      box-shadow: 0 0 15px #a5d6a7;
-    }
+  background-color: #142b0ddd;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 18px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 15px 15px;
+  user-select: none;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: #a5d6a7;
+  padding: 8px 15px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 4px transparent;
+}
+nav a:hover, nav a:focus {
+  color: #e8f5e9;
+  background-color: #4caf50aa;
+  box-shadow: 0 0 12px #81c784;
+  transform: scale(1.1);
+  outline: none;
+}
+nav a.active {
+  background-color: #81c784cc;
+  color: #004d40;
+  box-shadow: 0 0 15px #a5d6a7;
+}
+
+/* Submenu styles */
+.submenu {
+  position: relative;
+  display: inline-block;
+}
+.menu-item {
+  cursor: pointer;
+  user-select: none;
+}
+.submenu-content {
+  display: none;
+  position: absolute;
+  background-color: #142b0ddd;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 20;
+  top: 38px;
+  left: 0;
+}
+.submenu-content a {
+  color: #a5d6a7;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+.submenu-content a:hover {
+  background-color: #4caf50aa;
+  color: #e8f5e9;
+}
+.submenu:hover .submenu-content {
+  display: block;
+}
     main {
       max-width: 1100px;
       margin: auto;
@@ -173,9 +210,15 @@
   <p>Ingredientes de Axifres-la naturaleza al servicio de tu piel</p>
   </header>
 
-  <nav>
+    <nav>
     <a href="index.html">Inicio</a>
-    <a href="producto.html">Producto</a>
+    <div class="submenu">
+      <a href="producto.html" class="menu-item">Producto ▼</a>
+      <div class="submenu-content">
+        <a href="producto.html">Nuestro producto</a>
+        <a href="estudio.html">Estudio de Mercado</a>
+      </div>
+    </div>
     <a href="ingredientes.html" class="active">Ingredientes</a>
     <a href="caracteristicas.html">Características</a>
     <a href="galeria.html">Galería</a>

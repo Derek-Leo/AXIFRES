@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axifres - Características</title>
+  <title>Axifres - Estudio de Mercado</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Mismos estilos que en la página principal */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     html, body {
       height: 100%;
@@ -19,7 +22,8 @@
       z-index: 0;
     }
     #bg {
-      position: fixed; top: 0; left: 0;
+      position: fixed;
+      top: 0; left: 0;
       width: 100vw; height: 100vh;
       z-index: -1;
       background: #041805;
@@ -96,38 +100,59 @@
     /* Submenu styles */
     .submenu {
       position: relative;
-      display: inline-block;
     }
-    .menu-item {
-      cursor: pointer;
-      user-select: none;
-    }
+
     .submenu-content {
       display: none;
       position: absolute;
-      background-color: #142b0ddd;
-      min-width: 180px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-      border-radius: 8px;
-      padding: 8px 0;
-      z-index: 20;
-      top: 38px;
+      top: 100%;
       left: 0;
+      background-color: #1a3b10dd;
+      border-radius: 10px;
+      padding: 8px 0;
+      min-width: 180px;
+      box-shadow: 0 0 12px rgba(33, 150, 83, 0.7);
+      z-index: 20;
     }
+
     .submenu-content a {
-      color: #a5d6a7;
-      padding: 10px 20px;
-      text-decoration: none;
       display: block;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
+      padding: 10px 20px;
+      font-weight: 400;
+      color: #a5d6a7;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .submenu-content a:hover {
-      background-color: #4caf50aa;
+
+    .submenu-content a:hover,
+    .submenu-content a:focus {
+      background-color: #4caf5088;
       color: #e8f5e9;
     }
-    .submenu:hover .submenu-content {
+
+    .submenu:hover .submenu-content,
+    .submenu:focus-within .submenu-content {
       display: block;
+    }
+
+    .menu-item {
+      cursor: pointer;
+      user-select: none;
+      color: #a5d6a7;
+      font-weight: 700;
+      padding: 8px 15px;
+      border-radius: 12px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 4px transparent;
+    }
+
+    .menu-item:hover,
+    .menu-item:focus {
+      color: #e8f5e9;
+      background-color: #4caf50aa;
+      box-shadow: 0 0 12px #81c784;
+      transform: scale(1.1);
+      outline: none;
     }
 
     main {
@@ -149,27 +174,16 @@
       margin-right: auto;
       padding-bottom: 5px;
     }
-    ul.features-list {
-      max-width: 700px;
-      margin: auto;
-      list-style: none;
+    .section-text {
+      text-align: center;
       font-size: 1.25em;
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
       color: #c8e6c9;
       text-shadow: 0 0 5px #2e7d32aa;
-      line-height: 1.8;
-      padding-left: 0;
-    }
-    ul.features-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid #4caf50aa;
-      position: relative;
-    }
-    ul.features-list li::before {
-      content: "✔";
-      color: #81c784;
-      position: absolute;
-      left: -25px;
-      font-weight: bold;
     }
     footer {
       background-color: #142b0d;
@@ -204,8 +218,22 @@
         gap: 15px;
         border-radius: 0;
       }
-      ul.features-list {
-        font-size: 1.1em;
+      /* Submenu for mobile: show submenu content always inside */
+      .submenu-content {
+        position: static;
+        display: block !important;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        min-width: auto;
+      }
+      .submenu-content a {
+        padding-left: 35px;
+        font-size: 0.95em;
+      }
+      .submenu:hover .submenu-content,
+      .submenu:focus-within .submenu-content {
+        display: block;
       }
     }
   </style>
@@ -215,50 +243,48 @@
 
   <header>
     <h1>Axifres</h1>
-    <h1>¡Vive la vida sin mal olor!</h1>
-    <p>Características que hacen único nuestro desodorante</p>
+    <h1>Estudio de Mercado</h1>
+    <p>Conociendo nuestro entorno competitivo y oportunidades de crecimiento</p>
   </header>
 
   <nav>
-    <a href="index.html">Inicio</a>
+    <a href="index.html" class="active">Inicio</a>
     <div class="submenu">
       <a href="producto.html" class="menu-item">Producto ▼</a>
       <div class="submenu-content">
-        <a href="producto.html">Nuestro producto</a>
-        <a href="estudio.html">Estudio de Mercado</a>
+        <a href="producto.html">Nuestros productos</a>
+        <a href="estudio-mercado.html">Estudio de Mercado</a>
       </div>
     </div>
     <a href="ingredientes.html">Ingredientes</a>
-    <a href="caracteristicas.html" class="active">Características</a>
+    <a href="caracteristicas.html">Características</a>
     <a href="galeria.html">Galería</a>
     <a href="contacto.html">Contacto</a>
     <a href="creador.html">Creador</a>
   </nav>
 
   <main>
-    <section id="caracteristicas-lista">
-      <h2>Características de Axifres</h2>
-      <ul class="features-list">
-        <li>Fórmula natural y efectiva desarrollada para cuidar tu piel y eliminar el mal olor.</li>
-        <li>Contiene agua de rosas, que calma e hidrata profundamente.</li>
-        <li>Incluye hamamelis, ideal para tonificar y equilibrar la piel.</li>
-        <li>Enriquecido con piedra de alumbre, un mineral natural con propiedades antibacterianas.</li>
-        <li>No bloquea la transpiración, pero combate los olores eficazmente.</li>
-        <li>Versátil: puede usarse en axilas, pies y rostro.</li>
-        <li>Mejora la elasticidad y firmeza de la piel mientras refresca.</li>
-        <li>Libre de alcohol, parabenos y fragancias sintéticas.</li>
-        <li>Perfecto para pieles sensibles y uso diario.</li>
-        <li>Respeta tu cuerpo y el medio ambiente.</li>
-      </ul>
+    <section id="estudio-mercado">
+      <h2>Estudio de Mercado</h2>
+      <div class="section-text">
+        <p>Axifres será reconocido a nivel local, ya que como microempresa se tiene como objetivo contribuir con la ayuda de tener un mejor medio ambiente con menos contaminación y de igual manera, ayudar y proteger la salud y la higiene de nuestros clientes locales, ofreciéndoles desodorantes potentes y eficaces totalmente naturales que cuenta con diversas funciones además de eliminar el mal olor, cuida la piel y le otorga beneficios significativos a la piel.</p>
+
+        <p>La producción del producto será adaptada de acuerdo a las ventas que se realicen en un periodo de tiempo, entre mayor sea el consumo del producto, la producción será mayor. El producto contará con diversas presentaciones que serán ofrecidas al cliente y serán las siguientes: Axifres y Axifres Sport, cada una contará con 3 diferentes tamaños y contenido del producto que serán los siguientes: 30ml, 60ml y 120ml. Los precios serán proporcionales al contenido del producto y presentación que se acomode al estilo de vida y preferencias del cliente.</p>
+
+        <p>Cuenta con gran rivalidad en el mercado con grandes empresas que se enfocan en un tipo de mercado más amplio e internacional como lo son: Secret, Dove, Old Spice, etc. Aunque estas empresas no hacen productos naturales sino más convencionales, es decir, ocupan una cantidad significativa de productos químicos de igual manera, existen otras competencias más directas como lo son los desodorantes que abarcan el mismo campo que la empresa como lo son los desodorantes orgánicos y naturales que abarcan un mercado a nivel nacional, sin embargo, el desodorante Axifres da una competencia y batalla más directa a las demás empresas, esto debido al relativo bajo precio del producto y su gran eficacia, así mismo cuenta con 3 benéficas funcionalidades.</p>
+
+        <p>El producto es unisex, es decir, irá destinado para todo el público.</p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>Contacto: <a href="mailto: axifres09@gmail.com">axifres09@gmail.com</a> | Tel: +52 56 3620 8584</p>
+    <p>Contacto: <a href="mailto:axifres09@gmail.com">axifres09@gmail.com</a> | Tel: +52 56 3620 8584</p>
     <p>&copy; 2025 Axifres. Todos los derechos reservados.</p>
   </footer>
 
   <script>
+    // Animación de fondo (hojas flotando)
     const canvas = document.getElementById('bg');
     const ctx = canvas.getContext('2d');
     let width, height;
@@ -296,12 +322,6 @@
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size * 0.6, this.size, 0, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = `rgba(50, 100, 30, ${this.opacity + 0.2})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size);
-        ctx.lineTo(0, this.size);
-        ctx.stroke();
         ctx.restore();
       }
     }
