@@ -344,5 +344,15 @@
     init();
     animate();
   </script>
+
+  <script>
+  document.querySelectorAll('nav a.active').forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (window.location.href.includes(link.getAttribute('href'))) {
+        e.preventDefault();
+      }
+    });
+  });
+  </script>
 </body>
 </html>
