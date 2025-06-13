@@ -345,14 +345,15 @@
     animate();
   </script>
 
-  <script>
-  document.querySelectorAll('nav a.active').forEach(link => {
-    link.addEventListener('click', function (e) {
-      if (window.location.href.includes(link.getAttribute('href'))) {
+<script>
+  // Previene que el link se recargue si ya estás en la misma página
+  document.querySelectorAll('nav a').forEach(link => {
+    if (link.classList.contains('active')) {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-      }
-    });
+      });
+    }
   });
-  </script>
+</script>
 </body>
 </html>
